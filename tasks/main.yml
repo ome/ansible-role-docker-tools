@@ -2,7 +2,7 @@
 # Install additional docker tools globally
 
 - name: system packages | install epel repo
-  become: yes
+  become: true
   yum:
     name: epel-release
     state: present
@@ -10,16 +10,16 @@
 # Install as many python dependencies using RPMs if possible to reduce risk
 # of future conflicts
 - name: docker | Install docker python tools
-  become: yes
+  become: true
   yum:
     name: "{{ item }}"
     state: present
   with_items:
-  - python-devel
-  - python-pip
-  - PyYAML
-  - python-six
-  - python-requests
+    - python-devel
+    - python-pip
+    - PyYAML
+    - python-six
+    - python-requests
 
 # TODO: Ansible fails with latest version of docker-py
 # Error: docker-py version is 1.10.2. Minimum version required is 1.7.0.
@@ -28,10 +28,10 @@
 # The latest docker-compose requires docker-py==1.10.3, so cap version
 # https://github.com/docker/compose/blob/1.8.1/requirements.txt#L4
 - name: docker swarm | install python packages
-  become: yes
+  become: true
   pip:
     name: "{{ item }}"
     state: present
   with_items:
-  - docker-py==1.9.0
-  - docker-compose==1.8.0
+    - docker-py==1.9.0
+    - docker-compose==1.8.0
