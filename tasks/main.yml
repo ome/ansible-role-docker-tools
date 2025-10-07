@@ -11,13 +11,13 @@
 # of future conflicts
 - name: docker | Install docker python tools
   become: true
-  yum:
+  dnf:
     name: "{{ item }}"
     state: present
   with_items:
     - python-devel
     - python-pip
-    - PyYAML
+    - python3-pyyaml
     - python-six
     - python-requests
 
