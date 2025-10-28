@@ -1,12 +1,6 @@
 ---
 # Install additional docker tools globally
 
-- name: system packages | install epel repo
-  become: true
-  ansible.builtin.yum:
-    name: epel-release
-    state: present
-
 # Install as many python dependencies using RPMs if possible to reduce risk
 # of future conflicts
 - name: docker | Install docker python tools
@@ -29,7 +23,7 @@
 # https://github.com/docker/compose/blob/1.8.1/requirements.txt#L4
 - name: docker swarm | install python packages
   become: true
-  pip:
+  ansible.builtin.pip:
     name: "{{ item }}"
     state: present
   with_items:
