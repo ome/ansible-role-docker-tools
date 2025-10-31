@@ -1,8 +1,8 @@
 Docker Tools
 ============
 
-[![Build Status](https://travis-ci.org/ome/ansible-role-docker-tools.svg)](https://travis-ci.org/ome/ansible-role-docker-tools)
-[![Ansible Role](https://img.shields.io/ansible/role/41997.svg)](https://galaxy.ansible.com/ome/docker_tools/)
+[![Actions Status](https://github.com/ome/ansible-role-logrotate/workflows/Molecule/badge.svg)](https://github.com/ome/ansible-role-docker-tools/actions)
+[![Ansible Role](https://img.shields.io/badge/ansible--galaxy-docker_tools-blue.svg)](https://galaxy.ansible.com/ui/standalone/roles/ome/docker_tools/)
 
 Install Python based docker tools, such as `docker-compose`.
 
