@@ -41,5 +41,15 @@ jobs:
       - name: Run molecule
         run: molecule test -s "${{ matrix.scenario }}"
 
-# notifications:
-#   webhooks: https://galaxy.ansible.com/api/v1/notifications/
+  publish:
+    name: Galaxy
+    if: startsWith(github.ref, 'refs/tags')
+    needs:
+      - test
+    runs-on: ubuntu-24.04
+    steps:
+      - name: galaxy
+        uses: ansible-actions/ansible-galaxy-action@v1.2.0
+        with:
+          galaxy_api_key: ${{ secrets.GALAXY_API_KEY }}
+          galaxy_version: ${{  github.ref_name }}
